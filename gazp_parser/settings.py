@@ -11,27 +11,31 @@ BOT_NAME = "gazp_parser"
 
 SPIDER_MODULES = ["gazp_parser.spiders"]
 NEWSPIDER_MODULE = "gazp_parser.spiders"
-
+LOG_ENABLED = True # Включить или нет логирование (обычно False)
+LOG_LEVEL = 'DEBUG' # Уровень логирования
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "gazp_parser (+http://www.yourdomain.com)"
+# Какой юзер агент использовать при парсинге
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 4 # количество запросов в единицу времени
+
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 3 # Время задержки между пачками запросов (CONCURRENT_REQUESTS)
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+#Использовать или нет куки
+COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -62,6 +66,8 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+# Включить\выключить pipeline
 #ITEM_PIPELINES = {
 #    "gazp_parser.pipelines.GazpParserPipeline": 300,
 #}
